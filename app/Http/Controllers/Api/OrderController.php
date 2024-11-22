@@ -39,7 +39,7 @@ class OrderController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => __('Order status updated successfully.'),
+            'message' => __('Order status updated successfully for order ID: ') . $order->id,
         ]);
     }
 }

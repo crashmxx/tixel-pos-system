@@ -15,12 +15,8 @@ const getOrders = async (limit = 10, page = 1) => {
 };
 
 const updateOrderStatus = async (orderId, status) => {
-    try {
-        const response = await axios.patch(`/orders/${orderId}/status`, { status });
-        return response.data;
-    } catch (error) {
-        throw error;
-    }
+    const response = await axios.patch(`/orders/${orderId}/status`, { status });
+    return response.data;
 };
 
 export default {
