@@ -9,6 +9,9 @@
 
 ## Pre-requisites
 - Having Docker on your local machine: https://www.docker.com/
+- Having npm on your local machine, thanks to nvm :
+
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 ## Install
 ```  
@@ -32,9 +35,11 @@ sail artisan migrate:refresh --seed
 sail composer install
 
 - Compile front
-sail npm install
-sail npm run dev
+npm install
+npm run dev
 
+- Launch the PHP tests in cmd
+sail artisan test
 ```
 
 Then the application should be available on http://localhost
