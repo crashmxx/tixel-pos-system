@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/orders/{orderId}', [OrderController::class, 'show'])->name('order.show');
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
