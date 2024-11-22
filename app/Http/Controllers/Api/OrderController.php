@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class OrderController extends Controller
 {
@@ -25,5 +26,19 @@ class OrderController extends Controller
                 'statuses' => $statusOptions,
             ]
         );
+    }
+
+    public function updateStatus(Request $request, Order $order): JsonResponse
+    {
+        $validated = $request->validate([
+            'status' => ['required', Rule::in(array_keys(OrderStatus::cases()))]
+        ]);
+
+        $order->update(['status' => $validated['status']]);
+
+        return response()->json([
+            'success' => true,
+            'message' => __('Order status updated successfully.'),
+        ]);
     }
 }

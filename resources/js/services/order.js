@@ -15,8 +15,12 @@ const getOrders = async (limit = 10, page = 1) => {
 };
 
 const updateOrderStatus = async (orderId, status) => {
-    console.log(`Call API: Updating order ${orderId} to status ${status}`);
-    return { success: true, message: 'Order updated successfully.' };
+    try {
+        const response = await axios.patch(`/orders/${orderId}/status`, { status });
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
 };
 
 export default {
