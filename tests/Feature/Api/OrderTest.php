@@ -1,8 +1,7 @@
 <?php
 
-namespace Api;
+namespace Tests\Feature\Api;
 
-use App\Enums\OrderStatus;
 use App\Models\Order;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
