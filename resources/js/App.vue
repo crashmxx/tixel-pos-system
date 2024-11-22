@@ -1,11 +1,11 @@
 <template>
     <div>
-        <POSOrderManager />
+        <OrderManager />
     </div>
 </template>
 
 <script setup>
-import POSOrderManager from './components/POSOrderManager.vue';
+import OrderManager from './components/OrderManager.vue';
 </script>
 
 <style scoped>
