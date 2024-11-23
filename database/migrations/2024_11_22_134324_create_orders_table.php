@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('status')->default(0);
+            $table->string('access_token', 64)->unique();
+            $table->timestamp('access_token_expires_at');
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['status'];
+    protected $fillable = ['status', 'access_token'];
 
     protected $appends = ['status_name'];
 
