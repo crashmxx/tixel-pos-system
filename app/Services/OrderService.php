@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Events\OrderStatusUpdated;
 use App\Models\Order;
 
 class OrderService
@@ -9,7 +10,6 @@ class OrderService
     {
         $order->update(['status' => $status]);
 
-        // Broadcast an event to inform clients about the update (WebSocket event)
-        // @todo
+        OrderStatusUpdated::dispatch($order);
     }
 }
